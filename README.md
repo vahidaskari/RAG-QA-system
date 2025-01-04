@@ -3,7 +3,7 @@
 
 ## Description
 
-The RAG-based QA System is a question-answering application that leverages Retrieval-Augmented Generation (RAG) to provide accurate and contextually relevant answers. It combines the power of retrieval-based models and generative models to enhance the quality of responses. The system supports file uploads, chat interactions, and logs management to deliver a seamless user experience.
+The RAG-based QA System is a question-answering application that leverages Retrieval-Augmented Generation (RAG) to provide accurate and contextually relevant answers. It combines the power of retrieval-based models and generative models to enhance the quality of responses. The system supports file uploads, asking question, and logs management to deliver a seamless user experience.
 
 ## Installation
 
@@ -17,11 +17,11 @@ The RAG-based QA System is a question-answering application that leverages Retri
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/vahidaskari/RAG-based-QA-System
+    git clone https://github.com/vahidaskari/RAG-QA-system
     ```
 2. Navigate to the project directory:
     ```bash
-    cd RAG-based-QA-System
+    cd RAG-QA-system
     ```
 3. Create and activate a virtual environment:
     ```bash
@@ -55,8 +55,8 @@ docker build -t rag_app .
 docker run --rm --name rag-app -p 127.0.0.1:8000:8000 --network host --env-file ./.env -v ./../data:/app/data rag_app
 ```
 ## Docker compose Deployment (Recommended)
-change the MONGODB_CONNECTION_STRING value to "mongodb://mongodb:27017/" in `.env` file\
-then run:
+1. change the MONGODB_CONNECTION_STRING value to "mongodb://mongodb:27017/" in `.env` file\
+2. run:
 ```bash
 docker compose up
 ```
@@ -65,7 +65,7 @@ docker compose up
 
 ### 1. **Upload File**
 
-Upload one or more files for processing. Files are saved, and text is extracted to create a document stored in the database.
+Upload one or more files for processing. Files are saved, and text is extracted to create a document stored in ChromaDB.
 
 - **Endpoint**: `POST /file`
 - **Description**: Uploads multiple files and returns a unique `document_id` to reference the stored documents.
