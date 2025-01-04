@@ -1,0 +1,38 @@
+[project]
+name = "rag-based-qa-system"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Vahid Askari", email = "vahidaskari13782000@gmail.com" }
+]
+dependencies = [
+    "fastapi[all]>=0.115.6",
+    "python-multipart>=0.0.20",
+    "chromadb>=0.5.23",
+    "langchain>=0.3.13",
+    "pymupdf>=1.25.1",
+    "langchain-community>=0.3.13",
+    "tiktoken>=0.8.0",
+    "openai>=1.58.1",
+    "langchain-openai>=0.2.14",
+    "pymongo>=4.10.1",
+    "python-magic>=0.4.27",
+    "langchain-chroma>=0.1.4",
+    "pysqlite3-binary>=0.5.4",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_based_qa_system"]

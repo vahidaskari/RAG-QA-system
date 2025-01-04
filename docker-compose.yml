@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rag_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    env_file:
+      - .env
+    volumes:
+      - ./../data:/app/data
+    networks:
+      - rag-net
+
+  mongodb:
+    image: mongo:5.0
+    container_name: mongodb
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - rag-net
+
+volumes:
+  mongo_data:
+
+networks:
+  rag-net:
+    name: rag-net
+    driver: bridge
+    external: false
